@@ -1,0 +1,123 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Geometry Explorers Flashcards</title><style>@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#1e1b4b,#312e81,#4c1d95);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;}
+#ts{text-align:center;color:#fff;max-width:600px;}
+.badge{font-size:70px;margin-bottom:12px;display:block;}
+h1{font-size:2.3rem;font-weight:900;margin-bottom:8px;}
+.sub{font-size:1rem;opacity:.9;margin-bottom:12px;}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;}
+.pill{padding:5px 15px;border-radius:999px;font-weight:700;font-size:.8rem;color:#fff;}
+.instr{background:rgba(255,255,255,.15);border-radius:14px;padding:14px 20px;margin-bottom:22px;text-align:left;font-size:.9rem;line-height:1.8;}
+.instr strong{color:#fbbf24;}
+.btn-s{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1e1b4b;border:none;padding:12px 38px;border-radius:999px;font-size:1.1rem;font-weight:900;cursor:pointer;box-shadow:0 4px 18px rgba(251,191,36,.5);transition:transform .2s;}
+.btn-s:hover{transform:scale(1.05);}
+#cs{display:none;width:100%;max-width:680px;}
+.tbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;color:#fff;}
+.ll{font-size:.85rem;font-weight:700;padding:4px 12px;border-radius:999px;color:#fff;}
+.cc{font-size:.9rem;font-weight:700;opacity:.85;}
+.pw{background:rgba(255,255,255,.2);border-radius:999px;height:6px;margin-bottom:16px;overflow:hidden;}
+.pb{height:100%;border-radius:999px;background:linear-gradient(90deg,#fbbf24,#f59e0b);transition:width .4s;}
+.scene{width:100%;height:390px;perspective:1200px;cursor:pointer;margin-bottom:16px;}
+.ci{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.4,0,.2,1);}
+.ci.flipped{transform:rotateY(180deg);}
+.cf{position:absolute;width:100%;height:100%;border-radius:20px;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;box-shadow:0 14px 45px rgba(0,0,0,.4);}
+.front{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 26px;text-align:center;color:#fff;}
+.tl{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;opacity:.7;margin-bottom:10px;}
+.tm{font-size:2.5rem;font-weight:900;line-height:1.1;margin-bottom:16px;}
+.fh{font-size:.8rem;opacity:.6;display:flex;align-items:center;gap:5px;}
+.back{transform:rotateY(180deg);background:#fff;display:flex;overflow:hidden;}
+.cs2{width:8px;flex-shrink:0;}
+.cnt{flex:1;padding:20px 20px 20px 16px;display:flex;flex-direction:column;overflow:hidden;}
+.bt{font-size:1.3rem;font-weight:900;margin-bottom:8px;}
+.bm{display:flex;gap:7px;flex:1;margin-bottom:8px;}
+.bxt{flex:1;}
+.def{font-size:.95rem;line-height:1.6;color:#1e293b;margin-bottom:8px;}
+.ex{border-radius:10px;padding:8px 12px;font-size:.83rem;line-height:1.5;color:#374151;}
+.ex strong{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px;}
+.ci2{width:90px;height:90px;object-fit:contain;border-radius:9px;flex-shrink:0;margin-left:8px;align-self:center;}
+.ctrl{display:flex;align-items:center;justify-content:center;gap:12px;}
+.bn{background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.3);color:#fff;width:46px;height:46px;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:background .2s,transform .2s;display:flex;align-items:center;justify-content:center;}
+.bn:hover:not(:disabled){background:rgba(255,255,255,.25);transform:scale(1.1);}
+.bn:disabled{opacity:.3;cursor:not-allowed;}
+.bf{background:linear-gradient(135deg,#fbbf24,#f59e0b);border:none;color:#1e1b4b;padding:11px 28px;border-radius:999px;font-size:.9rem;font-weight:800;cursor:pointer;transition:transform .2s;}
+.bf:hover{transform:scale(1.05);}
+.kh{text-align:center;color:rgba(255,255,255,.45);font-size:.74rem;margin-top:10px;}
+.k{background:rgba(255,255,255,.15);padding:2px 6px;border-radius:4px;font-family:monospace;}
+#es{display:none;text-align:center;color:#fff;max-width:460px;}
+.tr{font-size:78px;margin-bottom:12px;display:block;}
+#es h2{font-size:1.9rem;font-weight:900;margin-bottom:9px;}
+#es p{font-size:.98rem;opacity:.85;margin-bottom:24px;line-height:1.7;}
+.br{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1e1b4b;border:none;padding:11px 34px;border-radius:999px;font-size:.98rem;font-weight:900;cursor:pointer;transition:transform .2s;}
+.br:hover{transform:scale(1.05);}</style></head><body>
+<div id="ts">
+  <span class="badge">📐</span>
+  <h1>Geometry Explorers Flashcards</h1>
+  <p class="sub">Section 2: Geometry — Kangaroo Math</p>
+  <div class="pills"><span class="pill" style="background:#ea580c;">🟠 Lesson 1: Hidden Cubes</span><span class="pill" style="background:#0891b2;">🔵 Lesson 2: Magic Mirrors</span><span class="pill" style="background:#db2777;">🩷 Lesson 3: Folded Paper</span></div>
+  <div class="instr"><strong>How to play:</strong><br>
+  Click <strong>Start</strong> to begin &nbsp;|&nbsp;
+  Click card or press <strong>F</strong> to flip &nbsp;|&nbsp;
+  Press <strong>Arrow keys</strong> or <strong>Space</strong> to navigate</div>
+  <button class="btn-s" onclick="go()">Start (24 Cards)</button>
+</div>
+<div id="cs">
+  <div class="tbar"><span class="ll" id="ll"></span><span class="cc" id="cc">1 / 24</span></div>
+  <div class="pw"><div class="pb" id="pb" style="width:4.2%"></div></div>
+  <div class="scene" onclick="fl()">
+    <div class="ci" id="ci">
+      <div class="cf front" id="fr">
+        <div class="tl">Vocabulary Term</div>
+        <div class="tm" id="ft">...</div>
+        <div class="fh"><span>🔄</span> Click to reveal definition</div>
+      </div>
+      <div class="cf back">
+        <div class="cs2" id="cst"></div>
+        <div class="cnt">
+          <div class="bt" id="bterm"></div>
+          <div class="bm">
+            <div class="bxt">
+              <div class="def" id="bdef"></div>
+              <div class="ex" id="exb"><strong>Example</strong><span id="bex"></span></div>
+            </div>
+            <img class="ci2" id="img" src="" alt="" style="display:none"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ctrl">
+    <button class="bn" id="bp" onclick="pv()" disabled>&#8592;</button>
+    <button class="bf" onclick="fl()">🔄 Flip Card</button>
+    <button class="bn" id="bn" onclick="nx()">&#8594;</button>
+  </div>
+  <div class="kh"><span class="k">F</span> flip &nbsp;|&nbsp; <span class="k">←</span> prev &nbsp;|&nbsp; <span class="k">→</span>/<span class="k">Space</span> next</div>
+</div>
+<div id="es">
+  <span class="tr">🏆</span>
+  <h2>You're a Geometry Explorer!</h2>
+  <p>You've reviewed all 24 vocabulary cards across Hidden Cubes, Magic Mirrors, and Folded Paper. Keep practising! 🦘</p>
+  <button class="br" onclick="rs()">🔄 Play Again</button>
+</div>
+<script>const C=[{"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "3D Shape", "definition": "A solid shape with LENGTH, WIDTH, and HEIGHT \u2014 it takes up space!", "example": "A dice, a box, and a building block are all 3D shapes.", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Cube", "definition": "A 3D shape with 6 equal square faces \u2014 like a dice!", "example": "Every side of a cube is the same size. A Rubik's cube is a cube!", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Layer", "definition": "A flat level of cubes \u2014 like one floor of a building.", "example": "A structure 3 cubes tall has 3 layers: bottom, middle, and top.", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Face", "definition": "One flat square side of a cube \u2014 a cube has 6 faces.", "example": "The top, bottom, front, back, left, and right of a cube are its 6 faces.", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Bird's-Eye View", "definition": "Looking straight DOWN at a shape from above \u2014 like a bird flying over it.", "example": "Looking down at a 2x2 cube structure, you see a 2x2 square.", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Hidden Cube", "definition": "A cube you CANNOT see from outside \u2014 it is tucked inside the structure.", "example": "In a 2x2x2 cube, the centre cube is completely hidden!", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Support Rule", "definition": "A hidden cube must have at least one cube ABOVE it supporting it.", "example": "If a cube sits on the ground with nothing above, it is visible, not hidden.", "image": ""}, {"lesson": "Lesson 1: Hidden Cubes", "color": "#ea580c", "light": "#fff7ed", "term": "Count Strategy", "definition": "Count layer by layer (bottom to top) to find the total number of cubes.", "example": "Layer 1: 4 cubes. Layer 2: 2 cubes. Layer 3: 1 cube. Total = 7!", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Symmetry", "definition": "A shape has symmetry if one half is a MIRROR IMAGE of the other half.", "example": "A butterfly has symmetry \u2014 fold it in half and both wings match perfectly!", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Mirror Line", "definition": "The line where you place the mirror \u2014 also called the LINE OF SYMMETRY.", "example": "Draw a line down the middle of a heart \u2014 that is the mirror line!", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Reflection", "definition": "The mirror image of a shape \u2014 it is FLIPPED across the mirror line.", "example": "Hold a letter R up to a mirror \u2014 you see a backwards R. That is its reflection!", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Distance Rule", "definition": "A reflected point is the SAME distance from the mirror line as the original.", "example": "If a dot is 3 squares left of the mirror, its reflection is 3 squares right.", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Line of Symmetry", "definition": "A line that splits a shape into two IDENTICAL mirror-image halves.", "example": "A square has 4 lines of symmetry. A circle has infinite lines of symmetry!", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Flip", "definition": "To turn a shape over across a mirror line \u2014 like flipping a pancake!", "example": "Flip the letter b across a vertical line and you get the letter d.", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Asymmetry", "definition": "When a shape has NO line of symmetry \u2014 the two halves do NOT match.", "example": "The letter F has no line of symmetry \u2014 it looks different when flipped!", "image": ""}, {"lesson": "Lesson 2: Magic Mirrors", "color": "#0891b2", "light": "#ecfeff", "term": "Vertical Mirror", "definition": "A mirror line that stands UP and DOWN \u2014 shapes are flipped left-right.", "example": "A vertical mirror turns b into d, and p into q.", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Fold", "definition": "To bend paper so one part lies exactly on top of another part.", "example": "Fold a square in half and you get a rectangle \u2014 the crease is the fold line!", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Crease", "definition": "The line left on paper after you fold it \u2014 it acts like a mirror line.", "example": "Fold a paper in half, then open it \u2014 the crease runs down the middle.", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Hole Punch", "definition": "Making a hole through ALL layers of folded paper at once.", "example": "Fold paper in half and punch 1 hole \u2014 unfold to see 2 holes!", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Hole Punch Rule", "definition": "Number of holes = holes punched times number of layers of paper.", "example": "2 folds = 4 layers. Punch 1 hole \u2014 4 holes when unfolded!", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Predict", "definition": "To figure out what the paper will look like BEFORE you unfold it.", "example": "Predict: fold once, punch top-left \u2014 unfold shows holes top-left AND top-right.", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Cube Net", "definition": "A flat shape that folds up to make a 3D cube \u2014 like an unfolded box.", "example": "A cross-shaped net of 6 squares folds into a cube!", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Layer", "definition": "Each thickness of paper after folding \u2014 1 fold = 2 layers, 2 folds = 4 layers.", "example": "Fold once: 2 layers. Fold again: 4 layers. Fold again: 8 layers!", "image": ""}, {"lesson": "Lesson 3: Folded Paper", "color": "#db2777", "light": "#fdf2f8", "term": "Unfold", "definition": "To open the paper back out flat and see where all the holes or cuts appear.", "example": "After punching and unfolding, the holes appear in a SYMMETRIC pattern!", "image": ""}];
+let i=0,f=false;
+function go(){document.getElementById('ts').style.display='none';document.getElementById('cs').style.display='block';ld(0);}
+function ld(n){f=false;const ci=document.getElementById('ci');ci.classList.remove('flipped');const c=C[n];
+document.getElementById('ft').textContent=c.term;
+ci.querySelector('.front').style.background='linear-gradient(135deg,'+c.color+','+adj(c.color,-20)+')';
+document.getElementById('bterm').textContent=c.term;document.getElementById('bterm').style.color=c.color;
+document.getElementById('bdef').textContent=c.definition;document.getElementById('bex').textContent=c.example;
+document.getElementById('cst').style.background=c.color;
+const eb=document.getElementById('exb');eb.style.background=c.light;eb.querySelector('strong').style.color=c.color;
+const img=document.getElementById('img');if(c.image){img.src=c.image;img.style.display='block';}else{img.style.display='none';}
+document.getElementById('ll').textContent=c.lesson;document.getElementById('ll').style.background=c.color;
+document.getElementById('cc').textContent=(n+1)+' / '+C.length;
+document.getElementById('pb').style.width=((n+1)/C.length*100).toFixed(1)+'%';
+document.getElementById('bp').disabled=n===0;document.getElementById('bn').disabled=n===C.length-1;}
+function fl(){f=!f;document.getElementById('ci').classList.toggle('flipped',f);}
+function nx(){if(i<C.length-1){i++;ld(i);}else{document.getElementById('cs').style.display='none';document.getElementById('es').style.display='block';}}
+function pv(){if(i>0){i--;ld(i);}}
+function rs(){i=0;document.getElementById('es').style.display='none';document.getElementById('cs').style.display='block';ld(0);}
+function adj(h,n){const v=parseInt(h.slice(1),16);const r=Math.min(255,Math.max(0,(v>>16)+n));const g=Math.min(255,Math.max(0,((v>>8)&255)+n));const b=Math.min(255,Math.max(0,(v&255)+n));return'#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');}
+document.addEventListener('keydown',(e)=>{if(document.getElementById('cs').style.display==='none')return;if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();nx();}else if(e.key==='ArrowLeft'){e.preventDefault();pv();}else if(e.key==='f'||e.key==='F'||e.key==='Enter'){fl();}});</script></body></html>
